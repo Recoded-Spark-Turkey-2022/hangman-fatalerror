@@ -2,7 +2,7 @@
 
 ## Overview
 
-If this is the first time you hear of Hangman, I suggest you read this [article](https://en.wikipedia.org/wiki/Hangman_(game)) and watch this [video](https://www.youtube.com/watch?v=leW9ZotUVYo).
+If this is the first time you hear of Hangman, I suggest you read this [article](<https://en.wikipedia.org/wiki/Hangman_(game)>) and watch this [video](https://www.youtube.com/watch?v=leW9ZotUVYo).
 
 Instead of having another player suggest the game, we will automate this by using an API as you can see in the requirements section. Example of what we want to accomplish [here](https://codepen.io/cathydutton/pen/ldazc). You can use it to know exactly what the game is about, but do not copy it. Use your own way. Be as creative as you can!
 
@@ -11,19 +11,21 @@ Instead of having another player suggest the game, we will automate this by usin
 ### Requirements
 
 1. HTML:
-    1. Add buttons that correspond to each letter from a to z.
-    2. Add a section that will hold the blanks that are going to be equal to the number of characters for the current word.
-    3. Add a div to show the man who's going to be hanged if you lose.
-    4. Add a counter from 10 that will decrease by 1 with every wrong guess.
-    5. Add a button to play again.
+
+   1. Add buttons that correspond to each letter from a to z.
+   2. Add a section that will hold the blanks that are going to be equal to the number of characters for the current word.
+   3. Add a div to show the man who's going to be hanged if you lose.
+   4. Add a counter from 10 that will decrease by 1 with every wrong guess.
+   5. Add a button to play again.
 
 2. JS:
-    1. At the beginning use fetch API to retrieve a random word from this api <https://random-word-api.herokuapp.com/word?number=1>. Make the blanks equal the number of letters in the random word.
-    2. Everytime the user clicks on one of the letters the following should happen:
-        1. Search through the random word to find if it contains the clicked letter, if the clicked letter is part of the random word's letters then it gets shown up instead of the space, if not, then the lives counter is decreased by one. In some cases a clicked letter corresponds to two letters in the generated word, if that happens then show both letters. Also, with every mistake draw a part of the hangman's body. You can draw your own designs. It doesn't have to be a hangman, it can any creature that you want. Be creative with this. One of the best ways to do this is to use the [HTML5 canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) element.
-        2. The button becomes disabled and should only work once.
-    3. If the lives counter reaches 0 then the game is over and the man should be HANGED! 👨‍🦱🔪😢
-    4. Clicking on the play again button should do the whole process again.
+
+   1. At the beginning use fetch API to retrieve a random word from this api <https://random-word-api.herokuapp.com/word?number=1>. Make the blanks equal the number of letters in the random word.
+   2. Everytime the user clicks on one of the letters the following should happen:
+      1. Search through the random word to find if it contains the clicked letter, if the clicked letter is part of the random word's letters then it gets shown up instead of the space, if not, then the lives counter is decreased by one. In some cases a clicked letter corresponds to two letters in the generated word, if that happens then show both letters. Also, with every mistake draw a part of the hangman's body. You can draw your own designs. It doesn't have to be a hangman, it can any creature that you want. Be creative with this. One of the best ways to do this is to use the [HTML5 canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) element.
+      2. The button becomes disabled and should only work once.
+   3. If the lives counter reaches 0 then the game is over and the man should be HANGED! 👨‍🦱🔪😢
+   4. Clicking on the play again button should do the whole process again.
 
 3. CSS: We leave this to your imagination. Generally, design something that screams with your personality. I don't want to see an exact copy of the screenshot, but I do want to see something that is fun and unique.
 
@@ -92,11 +94,11 @@ Just as in the **subject**, use the imperative, present tense: “change” not 
 - Don't leave any logs inside the code.
 - All variables should be `const` except for specific cases where you will need to use `let`
 - Variables should use camelCase naming convention
-- CSS classes should follow BEM naming convention. *You can find more about it [here](http://getbem.com/naming/) and [here (Youtube)](https://www.youtube.com/watch?v=SLjHSVwXYq4)*
+- CSS classes should follow BEM naming convention. _You can find more about it [here](http://getbem.com/naming/) and [here (Youtube)](https://www.youtube.com/watch?v=SLjHSVwXYq4)_
 - Leave only one empty line between CSS classes. This also goes for different purpose code blocks (like `functions` and variables under it).
 - Make sure your naming is right and not confusing i.e. the `sidebar` shouldn't be named `sidediv` or when you fetch `words` your function should return `words` not `stuff` or `x`
 - Make sure you clean your imported modules or files that you don't use before committing. The same goes for any variable, function or piece of code not used.
-- Don't repeat yourself (DRY). Make sure the code you write is reusable and reduce repetition of information of all kinds. For example, don't write two functions that do the same or almost the same job. *Read more about DRY [here](https://en.wikipedia.org/wiki/Don't_repeat_yourself).*
+- Don't repeat yourself (DRY). Make sure the code you write is reusable and reduce repetition of information of all kinds. For example, don't write two functions that do the same or almost the same job. _Read more about DRY [here](https://en.wikipedia.org/wiki/Don't_repeat_yourself)._
 
 ## Presentation
 

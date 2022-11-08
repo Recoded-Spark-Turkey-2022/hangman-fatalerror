@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/styles/style.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Tailwind Starter</title>
+  </head>
+  <body class="bg-slate-400">
+    <div id="flex" class="flex items-center justify-center flex-col">
+      <h1 class="text-center p-8 text-pink-900 hover:decoration-4">
+        HANGMAN GAME
+      </h1>
+
+      <p class="text-center p-8 text-pink-900">
+        Use the alphabet below to guess the word, or click hint to get a clue.
+      </p>
+      <ul
+        id="letterList"
+        class="flex items-center justify-center h-36 p-3 gap-4 flex-wrap"
+      ></ul>
+      <!-- <form id="buttons-container">
+        <button id="hint-button">hint</button>
+        <button id="play-again-button">play again</button>
+      </form> -->
+
+      <form id="form" class="flex items-center justify-center flex-col">
+        <input type="text" class="bg-rose-800" />
+        <div
+          id="button-container"
+          class="flex items-center justify-between gap-3 p-4"
+        >
+          <button
+            type="reset"
+            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
+          >
+            Reset Form
+          </button>
+          <button
+            type="submit"
+            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
+          >
+            Hint
+          </button>
+        </div>
+      </form>
+      <div id="man" class="border-8 border-indigo-600 p-24"></div>
+      <!-- kelimeleri seçilen idexe göre yerleştirme start -->
+      <div class="letter"></div>
+      <div class="word"></div>
+      <ul class="letterList"></ul>
+      <!-- kelimeleri seçilen idexe göre yerleştirme end -->
+
+      <div id="result"></div>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
