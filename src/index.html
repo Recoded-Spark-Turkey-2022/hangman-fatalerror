@@ -12,7 +12,8 @@
     <title>Tailwind Starter</title>
   </head>
   <body class="bg-slate-400">
-    <div id="flex" class="flex items-center justify-center flex-col">
+    <!--    text container start    -->
+    <div class="text-container">
       <h1 class="text-center p-8 text-pink-900 hover:decoration-4">
         HANGMAN GAME
       </h1>
@@ -20,6 +21,9 @@
       <p class="text-center p-8 text-pink-900">
         Use the alphabet below to guess the word, or click hint to get a clue.
       </p>
+    </div>
+    <!--     text-container end   -->
+    <div id="flex" class="flex items-center justify-center flex-row">
       <!-- <ul
         id="letterList"
         class="flex items-center justify-center h-36 p-3 gap-4 flex-wrap"
@@ -29,29 +33,9 @@
         <button id="play-again-button">play again</button>
       </form> -->
 
-      <form id="form" class="flex items-center justify-center flex-col">
-        <input type="text" class="bg-rose-800" />
-        <div
-          id="button-container"
-          class="flex items-center justify-between gap-3 p-4"
-        >
-          <button
-            type="reset"
-            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
-            id="reset"
-          >
-            Reset Form
-          </button>
-          <button
-            type="submit"
-            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
-            id="hintBtn"
-          >
-            Hint
-          </button>
-        </div>
-      </form>
-      <div id="man" class="border-8 border-indigo-600 p-24">
+      <!--     hangman start   -->
+
+      <div id="man" class="border-8 border-indigo-600 p-4">
         <svg height="400" width="400">
           <g id="body">
             <!-- 5 -->
@@ -86,7 +70,7 @@
 
             <!-- 8 -->
             <g id="a8" visibility="hidden">
-            <line id="armR" x1="200" y1="120" x2="230" y2="140" />
+              <line id="armR" x1="200" y1="120" x2="230" y2="140" />
             </g>
 
             <!-- 9 -->
@@ -98,37 +82,65 @@
               <line id="legR" x1="200" y1="150" x2="220" y2="190" />
             </g>
           </g>
-                          <!-- 1 -->
-          <g id="a1" visibility="hidden"> 
+          <!-- 1 -->
+          <g id="a1" visibility="hidden">
             <line x1="10" y1="250" x2="150" y2="250" />
             <line id="door1" x1="150" y1="250" x2="200" y2="250" />
             <line id="door2" x1="200" y1="250" x2="250" y2="250" />
             <line x1="250" y1="250" x2="390" y2="250" />
-
           </g>
-                          <!-- 2 -->
+          <!-- 2 -->
           <g id="a2" visibility="hidden">
             <line x1="100" y1="250" x2="100" y2="20" />
           </g>
-                        <!-- 3 -->
+          <!-- 3 -->
           <g id="a3" visibility="hidden">
             <line x1="100" y1="20" x2="200" y2="20" />
           </g>
-                          <!-- 4 -->
+          <!-- 4 -->
           <g id="a4" visibility="hidden">
             <line id="rope" x1="200" y1="20" x2="200" y2="60" />
           </g>
         </svg>
+        <div class="lives"><p id="lives"></p></div>
       </div>
-      <div class="lives"><p id="lives"></p></div>
+
+      <!--     hangman end   -->
+
+      <!--    letters start    -->
+      <div class="letters-list">
+        <!--   buttons start     -->
+
+        <div
+          id="button-container"
+          class="flex items-center justify-between gap-3 p-4"
+        >
+          <button
+            type="reset"
+            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
+            id="reset"
+          >
+            Reset Form
+          </button>
+          <button
+            type="submit"
+            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
+            id="hintBtn"
+          >
+            Hint
+          </button>
+        </div>
+        <!--   buttons end     -->
+      </div>
+      <!--    letters end    -->
 
       <!-- kelimeleri seçilen idexe göre yerleştirme start -->
-      <div class="letter"></div>
+      <!-- <div class="letter"></div>
       <div class="word"></div>
-      <ul class="letterList"></ul>
+      <ul class="letterList"></ul> -->
       <!-- kelimeleri seçilen idexe göre yerleştirme end -->
 
-      <div id="result"></div>
+      <!-- <div id="result"></div> -->
     </div>
   </body>
   <!-- <script src="./index.js"></script> -->

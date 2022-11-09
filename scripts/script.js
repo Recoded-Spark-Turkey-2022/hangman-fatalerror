@@ -1,9 +1,11 @@
 const url = "https://random-word-api.herokuapp.com/word?number=1";
 const letters = [];
+
 const ul = document.createElement("ul"); //created to put letters of random word in
+document.querySelector(".letters-list").appendChild(ul);
+
 ul.className = "flex items-center justify-center h-36 p-3 gap-4 flex-wrap";
 ul.style.listStyle = "none";
-document.querySelector("body").appendChild(ul);
 
 fetch(url)
   .then((resp) => resp.json())
@@ -20,34 +22,28 @@ fetch(url)
     }
     console.log(letters);
 
-
     //Hint button start//
 
-const hintBtn = document.getElementById('hintBtn')
+    const hintBtn = document.getElementById("hintBtn");
 
-hintBtn.addEventListener('click', (e) => {
-  e.preventDefault()
+    hintBtn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-  const randomIndex = Math.floor(Math.random() * letters.length)
-  console.log('random number => ' + randomIndex)
+      const randomIndex = Math.floor(Math.random() * letters.length);
+      console.log("random number => " + randomIndex);
 
- const selectedLi = document.querySelector(`ul :nth-child(${randomIndex+1})`)
+      const selectedLi = document.querySelector(
+        `ul :nth-child(${randomIndex + 1})`
+      );
 
-if(selectedLi.id == 'opened'){
-  
-}else{
-  selectedLi.textContent = letters[randomIndex]
-  selectedLi.id = 'opened'
-}
+      if (selectedLi.id == "opened") {
+      } else {
+        selectedLi.textContent = letters[randomIndex];
+        selectedLi.id = "opened";
+      }
+    });
 
-
-
-}) 
-
-
-
-
-//Hint button end//
+    //Hint button end//
   });
 
 const ulOfAlphabet = document.createElement("ul");
@@ -82,22 +78,19 @@ const alphabet = [
   "y",
   "z",
 ];
-
-
-
-
-
+const div = document.getElementById("flex");
+div.appendChild(ulOfAlphabet);
 
 // counter start
 let counter = 10;
-let counterHangmen = 0
+let counterHangmen = 0;
 
 let lives = document.querySelector("#lives");
 if (counter > 0) {
-    lives.textContent = `You have ${counter} lives`;
-  } else {
-    lives.textContent = "Game Over";
-  }
+  lives.textContent = `You have ${counter} lives`;
+} else {
+  lives.textContent = "Game Over";
+}
 
 // counter end
 
@@ -110,51 +103,46 @@ alphabet.forEach((element) => {
     "flex items-center justify-center h-36 p-3  flex-wrap bg-red-400 p-3 rounded w-5  text-white";
 
   btnOfAlphabet.addEventListener("click", () => {
-    let isAnswerTrue = true
+    let isAnswerTrue = true;
 
     for (let i = 0; i < letters.length; i++) {
       if (letters[i] == btnOfAlphabet.textContent) {
         btnOfAlphabet.disabled = "true";
         btnOfAlphabet.style.background = "green";
-        isAnswerTrue = true
+        isAnswerTrue = true;
 
         document.querySelectorAll(`.${letters[i]}`).forEach((letter) => {
           letter.textContent = letters[i];
-        })
+        });
         break;
       } else {
         btnOfAlphabet.disabled = "true";
         btnOfAlphabet.style.background = "blue";
-        isAnswerTrue = false
+        isAnswerTrue = false;
       }
     }
 
-
-
-
-    if(isAnswerTrue == false){
-        counter--
-        counterHangmen++
-        document.querySelector(`#a${counterHangmen}`).style.visibility = 'visible'
-        if(counter > 0){
-            lives.textContent = `You have ${counter} lives`;
-            
-        }else{
-            alert('You just killed a man!')
-            lives.textContent = "Game Over";
-            setTimeout(  window.location.reload(), 5000)
-        }
-    }else{
+    if (isAnswerTrue == false) {
+      counter--;
+      counterHangmen++;
+      document.querySelector(`#a${counterHangmen}`).style.visibility =
+        "visible";
+      if (counter > 0) {
         lives.textContent = `You have ${counter} lives`;
+      } else {
+        alert("You just killed a man!");
+        lives.textContent = "Game Over";
+        setTimeout(window.location.reload(), 5000);
+      }
+    } else {
+      lives.textContent = `You have ${counter} lives`;
     }
-
-
   });
 
   liOfAlphabet.appendChild(btnOfAlphabet);
   ulOfAlphabet.appendChild(liOfAlphabet);
 });
-document.querySelector("body").appendChild(ulOfAlphabet);
+document.querySelector(".letters-list").appendChild(ulOfAlphabet);
 
 // reload button start //
 let reload = document.querySelector("#reset");
@@ -162,4 +150,3 @@ reload.addEventListener("click", () => {
   window.location.reload();
 });
 // reload button  end//
-
