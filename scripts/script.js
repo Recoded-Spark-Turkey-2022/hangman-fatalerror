@@ -19,6 +19,35 @@ fetch(url)
       ul.appendChild(li);
     }
     console.log(letters);
+
+
+    //Hint button start//
+
+const hintBtn = document.getElementById('hintBtn')
+
+hintBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  const randomIndex = Math.floor(Math.random() * letters.length)
+  console.log('random number => ' + randomIndex)
+
+ const selectedLi = document.querySelector(`ul :nth-child(${randomIndex+1})`)
+
+if(selectedLi.id == 'opened'){
+  
+}else{
+  selectedLi.textContent = letters[randomIndex]
+  selectedLi.id = 'opened'
+}
+
+
+
+}) 
+
+
+
+
+//Hint button end//
   });
 
 const ulOfAlphabet = document.createElement("ul");
@@ -53,6 +82,11 @@ const alphabet = [
   "y",
   "z",
 ];
+
+
+
+
+
 
 // counter start
 let counter = 10;
@@ -119,3 +153,4 @@ reload.addEventListener("click", () => {
   window.location.reload();
 });
 // reload button  end//
+
