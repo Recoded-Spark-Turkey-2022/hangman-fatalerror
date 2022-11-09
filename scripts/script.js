@@ -90,6 +90,7 @@ const alphabet = [
 
 // counter start
 let counter = 10;
+let counterHangmen = 0
 
 let lives = document.querySelector("#lives");
 if (counter > 0) {
@@ -123,17 +124,25 @@ alphabet.forEach((element) => {
         break;
       } else {
         btnOfAlphabet.disabled = "true";
+        btnOfAlphabet.style.background = "blue";
         isAnswerTrue = false
       }
     }
 
+
+
+
     if(isAnswerTrue == false){
         counter--
+        counterHangmen++
+        document.querySelector(`#a${counterHangmen}`).style.visibility = 'visible'
         if(counter > 0){
             lives.textContent = `You have ${counter} lives`;
+            
         }else{
             alert('You just killed a man!')
             lives.textContent = "Game Over";
+            setTimeout(  window.location.reload(), 5000)
         }
     }else{
         lives.textContent = `You have ${counter} lives`;
