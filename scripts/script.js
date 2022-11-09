@@ -13,7 +13,6 @@ fetch(url)
     //created an array consist of letters of random word
     for (let i = 0; i < randomWord[0].length; i++) {
       letters.push(randomWord[0].charAt(i)); //can be deleted later, created for test purposes
-      console.log(letters);
       const li = document.createElement("li");
       li.textContent = "_";
       li.classList = `${letters[i]} w-10`;
@@ -59,6 +58,11 @@ const alphabet = [
 let counter = 10;
 
 let lives = document.querySelector("#lives");
+if (counter > 0) {
+    lives.textContent = `You have ${counter} lives`;
+  } else {
+    lives.textContent = "Game Over";
+  }
 
 // counter end
 
@@ -71,24 +75,37 @@ alphabet.forEach((element) => {
     "flex items-center justify-center h-36 p-3  flex-wrap bg-red-400 p-3 rounded w-5  text-white";
 
   btnOfAlphabet.addEventListener("click", () => {
+    let isAnswerTrue = true
+
     for (let i = 0; i < letters.length; i++) {
       if (letters[i] == btnOfAlphabet.textContent) {
         btnOfAlphabet.disabled = "true";
         btnOfAlphabet.style.background = "green";
+        isAnswerTrue = true
 
         document.querySelectorAll(`.${letters[i]}`).forEach((letter) => {
           letter.textContent = letters[i];
-        });
+        })
+        break;
       } else {
-        if (counter > 0) {
-          lives.textContent = `You have ${counter} lives`;
-        } else {
-          lives.textContent = "Game Over";
-        }
-        counter--;
         btnOfAlphabet.disabled = "true";
+        isAnswerTrue = false
       }
     }
+
+    if(isAnswerTrue == false){
+        counter--
+        if(counter > 0){
+            lives.textContent = `You have ${counter} lives`;
+        }else{
+            alert('You just killed a man!')
+            lives.textContent = "Game Over";
+        }
+    }else{
+        lives.textContent = `You have ${counter} lives`;
+    }
+
+
   });
 
   liOfAlphabet.appendChild(btnOfAlphabet);
