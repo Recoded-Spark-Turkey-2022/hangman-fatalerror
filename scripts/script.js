@@ -115,7 +115,7 @@ alphabet.forEach((element) => {
   btnOfAlphabet.textContent = element;
   btnOfAlphabet.style.width = "3em";
   btnOfAlphabet.className =
-    "flex items-center justify-center h-36 p-3  flex-wrap bg-red-400 p-3 rounded w-5  text-white";
+    "flex items-center justify-center h-36 p-3  flex-wrap bg-gray-600 p-3 rounded w-5  text-white";
 
   btnOfAlphabet.addEventListener("click", () => {
     let isAnswerTrue = true;
@@ -123,7 +123,7 @@ alphabet.forEach((element) => {
     for (let i = 0; i < letters.length; i++) {
       if (letters[i] == btnOfAlphabet.textContent) {
         btnOfAlphabet.disabled = "true";
-        btnOfAlphabet.style.background = "green";
+        btnOfAlphabet.className = 'flex items-center justify-center h-36 p-3  flex-wrap bg-gray-600 p-3 rounded w-5  text-white bg-green-500';
         isAnswerTrue = true;
 
         document.querySelectorAll(`.${letters[i]}`).forEach((letter) => {
@@ -132,7 +132,7 @@ alphabet.forEach((element) => {
         break;
       } else {
         btnOfAlphabet.disabled = "true";
-        btnOfAlphabet.style.background = "blue";
+        btnOfAlphabet.className = 'flex items-center justify-center h-36 p-3  flex-wrap bg-gray-600 p-3 rounded w-5  text-white bg-red-500'
         isAnswerTrue = false;
       }
     }

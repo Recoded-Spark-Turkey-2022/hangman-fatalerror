@@ -11,7 +11,7 @@
     />
     <title>Tailwind Starter</title>
   </head>
-  <body class="bg-slate-400">
+  <body class="bg-gray-300">
     <!--    text container start    -->
     <div class="text-container">
       <h1 class="text-center p-8 text-pink-900 hover:decoration-4">
@@ -23,20 +23,12 @@
       </p>
     </div>
     <!--     text-container end   -->
-    <div id="flex" class="flex items-center justify-center flex-row">
-      <!-- <ul
-        id="letterList"
-        class="flex items-center justify-center h-36 p-3 gap-4 flex-wrap"
-      ></ul> -->
-      <!-- <form id="buttons-container">
-        <button id="hint-button">hint</button>
-        <button id="play-again-button">play again</button>
-      </form> -->
-
+    <div id="flex" class="flex items-center justify-center lg:flex-row flex-col">
+     
       <!--     hangman start   -->
 
-      <div id="man" class="border-8 border-indigo-600 p-4">
-        <svg height="400" width="400">
+      <div id="man" class="border-8 border-indigo-600 lg:w-2/6 w-5/6 p-4">
+        <svg height="400" class="w-full">
           <g id="body">
             <!-- 5 -->
             <g id="a5" visibility="hidden">
@@ -108,7 +100,7 @@
       <!--     hangman end   -->
 
       <!--    letters start    -->
-      <div class="letters-list">
+      <div class="letters-list lg:w-3/6 w-5/6">
         <!--   buttons start     -->
 
         <div
@@ -117,14 +109,14 @@
         >
           <button
             type="reset"
-            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
+            class="bg-indigo-600 hover:bg-indigo-300 text-white font-bold py-2 px-4 rounded-full"
             id="reset"
           >
             Reset Form
           </button>
           <button
             type="submit"
-            class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full"
+            class="bg-indigo-600 hover:bg-indigo-300 text-white font-bold py-2 px-4 rounded-full"
             id="hintBtn"
           >
             Hint
