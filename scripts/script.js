@@ -29,18 +29,33 @@ fetch(url)
     hintBtn.addEventListener("click", (e) => {
       e.preventDefault();
 
-      const randomIndex = Math.floor(Math.random() * letters.length);
-      console.log("random number => " + randomIndex);
+      function generateHint(){
+        const randomIndex = Math.floor(Math.random() * letters.length);
+        console.log("random number => " + randomIndex);
+  
+        const selectedLi = document.querySelector(
+          `ul :nth-child(${randomIndex + 1})`
+        );
 
-      const selectedLi = document.querySelector(
-        `ul :nth-child(${randomIndex + 1})`
-      );
-
-      if (selectedLi.id == "opened") {
-      } else {
-        selectedLi.textContent = letters[randomIndex];
-        selectedLi.id = "opened";
+        if (selectedLi.id == "opened") {
+          generateHint()
+        } else {
+          selectedLi.textContent = letters[randomIndex];
+          selectedLi.id = "opened";
+  
+          const alpUl = document.querySelector(`#ulAlp`).childNodes
+  
+            for(let i = 0 ; i < alpUl.length; i ++){
+              if(alpUl[i].firstChild.textContent == selectedLi.textContent){
+                alpUl[i].firstChild.disabled = 'true'
+                alpUl[i].firstChild.classList = 'flex items-center justify-center h-36 p-3  flex-wrap p-3 rounded w-5  text-white bg-orange-600'
+            }
+          }
+        }
       }
+      
+      generateHint()
+      
     });
 
     //Hint button end//
@@ -138,7 +153,7 @@ alphabet.forEach((element) => {
       lives.textContent = `You have ${counter} lives`;
     }
   });
-
+  ulOfAlphabet.id = 'ulAlp'
   liOfAlphabet.appendChild(btnOfAlphabet);
   ulOfAlphabet.appendChild(liOfAlphabet);
 });
