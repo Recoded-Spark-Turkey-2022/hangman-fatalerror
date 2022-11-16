@@ -1,14 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/styles/style.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Tailwind Starter</title>
+  </head>
+  <body class="bg-gray-300">
+    <!--    text container start    -->
+    <div class="text-container">
+      <h1 class="text-center p-8 text-pink-900 hover:decoration-4">
+        HANGMAN GAME
+      </h1>
 
-  <script src="./scripts/script.js"></script>
-</body>
+      <p class="text-center p-8 text-pink-900">
+        Use the alphabet below to guess the word, or click hint to get a clue.
+      </p>
+    </div>
+    <!--     text-container end   -->
+    <div id="flex" class="flex items-center justify-center lg:flex-row flex-col">
+     
+      <!--     hangman start   -->
+
+      <div id="man" class="border-8 border-indigo-600 lg:w-2/6 w-5/6 p-4">
+        <svg height="400" class="w-full">
+          <g id="body">
+            <!-- 5 -->
+            <g id="a5" visibility="hidden">
+              <circle
+                cx="200"
+                cy="80"
+                r="20"
+                stroke="black"
+                stroke-width="4"
+                fill="white"
+              />
+              <g id="rEyes">
+                <circle cx="193" cy="80" r="4" />
+                <circle cx="207" cy="80" r="4" />
+              </g>
+              <g id="xEyes" class="hide">
+                <line x1="190" y1="78" x2="196" y2="84" />
+                <line x1="204" y1="78" x2="210" y2="84" />
+                <line x1="190" y1="84" x2="196" y2="78" />
+                <line x1="204" y1="84" x2="210" y2="78" />
+              </g>
+            </g>
+            <!-- 6 -->
+            <g id="a6" visibility="hidden">
+              <line x1="200" y1="100" x2="200" y2="150" />
+            </g>
+            <!-- 7 -->
+            <g id="a7" visibility="hidden">
+              <line id="armL" x1="200" y1="120" x2="170" y2="140" />
+            </g>
+
+            <!-- 8 -->
+            <g id="a8" visibility="hidden">
+              <line id="armR" x1="200" y1="120" x2="230" y2="140" />
+            </g>
+
+            <!-- 9 -->
+            <g id="a9" visibility="hidden">
+              <line id="legL" x1="200" y1="150" x2="180" y2="190" />
+            </g>
+            <!-- 10 -->
+            <g id="a10" visibility="hidden">
+              <line id="legR" x1="200" y1="150" x2="220" y2="190" />
+            </g>
+          </g>
+          <!-- 1 -->
+          <g id="a1" visibility="hidden">
+            <line x1="10" y1="250" x2="150" y2="250" />
+            <line id="door1" x1="150" y1="250" x2="200" y2="250" />
+            <line id="door2" x1="200" y1="250" x2="250" y2="250" />
+            <line x1="250" y1="250" x2="390" y2="250" />
+          </g>
+          <!-- 2 -->
+          <g id="a2" visibility="hidden">
+            <line x1="100" y1="250" x2="100" y2="20" />
+          </g>
+          <!-- 3 -->
+          <g id="a3" visibility="hidden">
+            <line x1="100" y1="20" x2="200" y2="20" />
+          </g>
+          <!-- 4 -->
+          <g id="a4" visibility="hidden">
+            <line id="rope" x1="200" y1="20" x2="200" y2="60" />
+          </g>
+        </svg>
+        <div class="lives"><p id="lives"></p></div>
+      </div>
+
+      <!--     hangman end   -->
+
+      <!--    letters start    -->
+      <div class="letters-list lg:w-3/6 w-5/6">
+        <!--   buttons start     -->
+
+        <div
+          id="button-container"
+          class="flex items-center justify-between gap-3 p-4"
+        >
+          <button
+            type="reset"
+            class="bg-indigo-600 hover:bg-indigo-300 text-white font-bold py-2 px-4 rounded-full"
+            id="reset"
+          >
+            Reset Form
+          </button>
+          <button
+            type="submit"
+            class="bg-indigo-600 hover:bg-indigo-300 text-white font-bold py-2 px-4 rounded-full"
+            id="hintBtn"
+          >
+            Hint
+          </button>
+        </div>
+        <!--   buttons end     -->
+      </div>
+      <!--    letters end    -->
+
+    
+    </div>
+  </body>
+  <!-- <script src="./index.js"></script> -->
+  <script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
+  <script src="/script.js"></script>
 </html>
